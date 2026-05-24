@@ -487,7 +487,18 @@
 
         // SPA Routing Logic
         function route() {
-            const hash = window.location.hash || '#main';
+            const urlParams = new URLSearchParams(window.location.search);
+            const pageParam = urlParams.get('page');
+            let hash = window.location.hash;
+
+            // Если хэша нет, но есть query-параметр page, используем его
+            if (!hash && pageParam) {
+                hash = '#' + pageParam;
+            }
+            if (!hash) {
+                hash = '#main';
+            }
+
             const sections = {
                 '#main': 'main-page',
                 '#tariffs': 'tariffs-page',
