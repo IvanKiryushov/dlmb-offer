@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DLMB | Автоматизация приёма заявок на МВУ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Montserrat:wght@800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <div class="bg-scene"></div>
+    <div class="bg-noise"></div>
+
+    <!-- Навигационное меню (Вкладки приложения) — Глобально зафиксировано в самом верху экрана -->
+    <nav class="app-nav">
+        <a href="#main" class="nav-link">Главная</a>
+        <a href="#tariffs" class="nav-link">Тарифы</a>
+        <a href="#compare" class="nav-link">Сравнение</a>
+        <a href="#guarantees" class="nav-link">Условия</a>
+    </nav>
+
+    <article class="proposal">
+        <div class="app-content-container">
+            <!-- СЕКЦИЯ 1: ГЛАВНАЯ -->
+            <div id="main-page" class="page-section">
+                <header class="proposal-header">
+                    <div class="brand-badge">
+                        <span class="mono-tag">DLMB (Driver License Manager Bot) // КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ</span>
+                    </div>
+                    <div class="main-title">
+                        <h1>УБИРАЕМ РУТИНУ, ПЛОХИЕ ФОТО И ЛИШНИЕ ВОПРОСЫ ПРИ ОФОРМЛЕНИИ МВУ</h1>
+                        <div class="subtitle">Автоматизация приёма заказов, контроля качества данных и масштабирования
+                            бизнеса (Нячанг / Пхукет)</div>
+                    </div>
+                    <div class="intro-block">
+                        <p>Артем, привет. На основе нашей встречи я услышал от тебя о ключевых проблемах и твоих болях в процессах, которые отнимают больше всего времени и мешают расти. Я выделил следующие ключевые проблемы:</p>
+
+                        <div class="pain-points-list">
+                            <div class="pain-point-item">
+                                <span class="mono-tag text-accent">[01. РУТИНА В ЛС]</span>
+                                <p>Каждый день приходят по 20–30 человек с однотипными вопросами про легальность МВУ,
+                                    рукописный стандарт заполнения и способы оплаты. Менеджеры тратят часы на базовый
+                                    ликбез.</p>
+                            </div>
+                            <div class="pain-point-item">
+                                <span class="mono-tag text-accent">[02. НЕКАЧЕСТВЕННЫЕ ФОТО]</span>
+                                <p>Клиенты присылают фото документов с бликами, пальцами на бланках или плохим фоном.
+                                    Начинается долгая переписка с просьбами переделать кадр.</p>
+                            </div>
+                            <div class="pain-point-item">
+                                <span class="mono-tag text-accent">[03. ОШИБКИ И СПОРЫ]</span>
+                                <p>После утверждения макета клиенты находят свои же опечатки и требуют переделать права
+                                    бесплатно. А также спорят по поводу рукописного шрифта заполнения.</p>
+                            </div>
+                            <div class="pain-point-item">
+                                <span class="mono-tag text-accent">[04. РИСКИ И ОПЛАТА]</span>
+                                <p>Личные встречи для передачи налички курьерам отнимают время и создают лишние риски
+                                    для OpSec в Нячанге.</p>
+                            </div>
+                        </div>
+
+                        <div class="highlight-text">
+                            <strong>Решение:</strong> Telegram-бот в роли жесткого автоматического фильтра на входе.
+                            Клиент физически не сможет отправить заявку менеджеру, пока не пройдет опросник по шагам, не
+                            согласится с правилами (включая рукописный ввод, оплату 50/50 и платную переделку ошибок) и
+                            не загрузит фото по жесткому гайду. Менеджер подключается только в самом конце для проверки
+                            готовой, отфильтрованной заявки в закрытой группе.
+                        </div>
+                    </div>
+                </header>
+
+                <div class="next-step-btn-container">
+                    <a href="#tariffs" class="btn-neon">Изучить тарифы <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- СЕКЦИЯ 2: ТАРИФЫ (Компактные статичные карточки) -->
+            <div id="tariffs-page" class="page-section hidden">
+                <section class="chapter">
+                    <div class="chapter-label">// ВЫБЕРИ СВОЙ УРОВЕНЬ</div>
+                    <h2>Варианты реализации</h2>
+
+                    <div class="pricing-accordion">
+                        <!-- Тариф 1 -->
+                        <div class="accordion-item" id="accordion-t1">
+                            <div class="accordion-trigger" onclick="toggleAccordion('accordion-t1')">
+                                <div class="trigger-left">
+                                    <span class="version-tag">LEVEL 01</span>
+                                    <h3>Навигатор</h3>
+                                    <p class="trigger-desc">Бот-визитка с правилами и FAQ</p>
+                                </div>
+                                <div class="trigger-right">
+                                    <span class="card-price">БАРТЕР</span>
+                                    <i class="fa-solid fa-chevron-down arrow"></i>
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="content-body">
+                                    <div class="card-body-flat">
+                                        <p class="card-description">Оформляет все твои правила, требования к фото и цены
+                                            в удобное интерактивное меню. Бот выдает автоматическую инструкцию перед
+                                            переводом диалога на менеджера.</p>
+                                        <div class="outcome-box-flat">
+                                            <strong>Результат:</strong> Вопросы «а как заполнять?» сокращаются вдвое.
+                                            Клиенты приходят уже подготовленными.
+                                        </div>
+                                    </div>
+                                    <div class="card-footer-flat">
+                                        <span class="meta-item"><i class="fa-regular fa-clock"></i> Срок: ~1
+                                            неделя</span>
+                                        <span class="meta-item"><i class="fa-solid fa-tag"></i> в счёт МВУ ($250)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Тариф 2 -->
+                        <div class="accordion-item" id="accordion-t2">
+                            <div class="accordion-trigger" onclick="toggleAccordion('accordion-t2')">
+                                <div class="trigger-left">
+                                    <span class="version-tag">LEVEL 02</span>
+                                    <h3>Конвейер</h3>
+                                    <p class="trigger-desc">Автоматический приём и обработка заявок</p>
+                                </div>
+                                <div class="trigger-right">
+                                    <span class="card-price">$1 500</span>
+                                    <i class="fa-solid fa-chevron-down arrow"></i>
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="content-body">
+                                    <div class="card-body-flat">
+                                        <p class="card-description">Пошаговый сбор данных (ФИО, гражданство, фото) с
+                                            жесткой валидацией файлов. Новые заявки мгновенно приходят в закрытую
+                                            Telegram-группу с кнопками управления («Принять» / «На доработку») и
+                                            автоматически записываются в Google Таблицу. Включает базовые реферальные
+                                            ссылки для партнеров.</p>
+                                        <div class="outcome-box-flat">
+                                            <strong>Результат:</strong> Полный контроль над потоком заявок. Исключены
+                                            ошибки ручного ввода, а данные клиентов всегда структурированы.
+                                        </div>
+                                    </div>
+                                    <div class="card-footer-flat">
+                                        <span class="meta-item"><i class="fa-regular fa-clock"></i> Срок: 2–3
+                                            недели</span>
+                                        <span class="meta-item"><i class="fa-solid fa-tag"></i> Фиксированная цена под
+                                            ключ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Тариф 3 -->
+                        <div class="accordion-item" id="accordion-t3">
+                            <div class="accordion-trigger" onclick="toggleAccordion('accordion-t3')">
+                                <div class="trigger-left">
+                                    <span class="version-tag">LEVEL 03</span>
+                                    <h3>Штаб</h3>
+                                    <p class="trigger-desc">Личный кабинет и защита данных</p>
+                                </div>
+                                <div class="trigger-right">
+                                    <span class="card-price">$2 900</span>
+                                    <i class="fa-solid fa-chevron-down arrow"></i>
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="content-body">
+                                    <div class="card-body-flat">
+                                        <p class="card-description">Профессиональная веб-CRM панель с Канбан-доской для
+                                            управления заказами и 2FA авторизацией. Работает на быстрой базе PostgreSQL.
+                                            Включает модуль защиты персональных данных: сканы паспортов загружаются
+                                            напрямую в браузер из Telegram без сохранения на сервере.</p>
+                                        <div class="outcome-box-flat">
+                                            <strong>Результат:</strong> Управление бизнесом через полноценный пульт
+                                            управления с абсолютной безопасностью конфиденциальных данных.
+                                        </div>
+                                    </div>
+                                    <div class="card-footer-flat">
+                                        <span class="meta-item"><i class="fa-regular fa-clock"></i> Срок: 4–6
+                                            недель</span>
+                                        <span class="meta-item"><i class="fa-solid fa-tag"></i> Фиксированная цена под
+                                            ключ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="next-step-btn-container">
+                    <a href="#main" class="btn-neon btn-back"><i class="fa-solid fa-arrow-left"></i> Назад</a>
+                    <a href="#compare" class="btn-neon">Сравнить возможности <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- СЕКЦИЯ 3: СРАВНЕНИЕ -->
+            <div id="compare-page" class="page-section hidden">
+                <section class="chapter">
+                    <div class="chapter-label">// СРАВНИТЕЛЬНЫЙ АНАЛИЗ</div>
+                    <h2>Сравнение возможностей</h2>
+
+                    <div class="table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Возможность</th>
+                                    <th class="center">L1</th>
+                                    <th class="center">L2</th>
+                                    <th class="center">L3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Меню, FAQ, правила в боте</td>
+                                    <td class="center" data-label="L1"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                    <td class="center" data-label="L2"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                    <td class="center" data-label="L3"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Пошаговый сбор данных</td>
+                                    <td class="center" data-label="L1"><span class="empty-cell">—</span></td>
+                                    <td class="center" data-label="L2"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                    <td class="center" data-label="L3"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Валидация фотографий</td>
+                                    <td class="center" data-label="L1"><span class="empty-cell">—</span></td>
+                                    <td class="center" data-label="L2"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                    <td class="center" data-label="L3"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Учёт заявок (Google Sheets)</td>
+                                    <td class="center" data-label="L1"><span class="empty-cell">—</span></td>
+                                    <td class="center" data-label="L2"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                    <td class="center" data-label="L3"><span class="empty-cell">—</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Учёт заявок (своя БД PostgreSQL)</td>
+                                    <td class="center" data-label="L1"><span class="empty-cell">—</span></td>
+                                    <td class="center" data-label="L2"><span class="empty-cell">—</span></td>
+                                    <td class="center" data-label="L3"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Уведомления менеджеру в TG</td>
+                                    <td class="center" data-label="L1"><span class="empty-cell">—</span></td>
+                                    <td class="center" data-label="L2"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                    <td class="center" data-label="L3"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Веб-панель (CRM)</td>
+                                    <td class="center" data-label="L1"><span class="empty-cell">—</span></td>
+                                    <td class="center" data-label="L2"><span class="empty-cell">—</span></td>
+                                    <td class="center" data-label="L3"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Защита документов (без хранения)</td>
+                                    <td class="center" data-label="L1"><span class="empty-cell">—</span></td>
+                                    <td class="center" data-label="L2"><span class="empty-cell">—</span></td>
+                                    <td class="center" data-label="L3"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Канбан-доска в CRM</td>
+                                    <td class="center" data-label="L1"><span class="empty-cell">—</span></td>
+                                    <td class="center" data-label="L2"><span class="empty-cell">—</span></td>
+                                    <td class="center" data-label="L3"><i class="fa-solid fa-circle-check text-success"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Реферальная система</td>
+                                    <td class="center" data-label="L1"><span class="empty-cell">—</span></td>
+                                    <td class="center" data-label="L2"><span class="ref-badge basic">базовая</span></td>
+                                    <td class="center" data-label="L3"><span class="ref-badge basic">базовая</span></td>
+                                </tr>
+                                <tr class="table-summary-row">
+                                    <td><strong>Стоимость</strong></td>
+                                    <td class="center" data-label="L1"><strong>БАРТЕР</strong></td>
+                                    <td class="center" data-label="L2"><strong>$1 500</strong></td>
+                                    <td class="center" data-label="L3"><strong>$2 900</strong></td>
+                                </tr>
+                                <tr class="table-summary-row">
+                                    <td><strong>Срок</strong></td>
+                                    <td class="center" data-label="L1"><strong>~1 нед.</strong></td>
+                                    <td class="center" data-label="L2"><strong>2-3 нед.</strong></td>
+                                    <td class="center" data-label="L3"><strong>4-6 нед.</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <div class="next-step-btn-container">
+                    <a href="#tariffs" class="btn-neon btn-back"><i class="fa-solid fa-arrow-left"></i> Назад</a>
+                    <a href="#guarantees" class="btn-neon">Условия работы <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- СЕКЦИЯ 4: УСЛОВИЯ (АККОРДЕОНЫ) -->
+            <div id="guarantees-page" class="page-section hidden">
+                <section class="chapter">
+                    <div class="chapter-label">// УСЛОВИЯ И СОГЛАШЕНИЕ</div>
+                    <h2>Детали сотрудничества</h2>
+                    <p class="section-desc">Ниже собраны все организационные и технические подробности проекта:</p>
+
+                    <div class="details-accordion">
+                        <!-- Аккордеон 1: Гарантии -->
+                        <div class="accordion-item details-card-item" id="accordion-d1">
+                            <div class="accordion-trigger" onclick="toggleAccordion('accordion-d1')">
+                                <div class="trigger-left">
+                                    <h3>Гарантии и поддержка</h3>
+                                </div>
+                                <i class="fa-solid fa-chevron-down arrow"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="content-body">
+                                    <div class="guarantees-list">
+                                        <div class="g-item">
+                                            <div class="g-content">
+                                                <h4>14 дней бесплатной поддержки</h4>
+                                                <p>Если после сдачи обнаружится технический сбой или баг — исправлю
+                                                    бесплатно в приоритетном порядке.</p>
+                                            </div>
+                                        </div>
+                                        <div class="g-item">
+                                            <div class="g-content">
+                                                <h4>Полная передача кода</h4>
+                                                <p>Получаешь все исходные файлы и инструкцию по развёртыванию. Система
+                                                    полностью принадлежит тебе.</p>
+                                            </div>
+                                        </div>
+                                        <div class="g-item">
+                                            <div class="g-content">
+                                                <h4>Прозрачный процесс</h4>
+                                                <p>Показываю промежуточные результаты в ходе разработки. Ты
+                                                    контролируешь процесс на каждом этапе.</p>
+                                            </div>
+                                        </div>
+                                        <div class="g-item">
+                                            <div class="g-content">
+                                                <h4>Почасовая ставка на доработки</h4>
+                                                <p>Любые новые фичи или изменения за рамками согласованного ТЗ после
+                                                    запуска — <strong>$20 в час</strong>.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Аккордеон 2: Расходы -->
+                        <div class="accordion-item details-card-item" id="accordion-d2">
+                            <div class="accordion-trigger" onclick="toggleAccordion('accordion-d2')">
+                                <div class="trigger-left">
+                                    <h3>Содержание системы (Допрасходы)</h3>
+                                </div>
+                                <i class="fa-solid fa-chevron-down arrow"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="content-body">
+                                    <div class="expenses-details-list">
+                                        <div class="exp-detail-row">
+                                            <div class="exp-detail-col">
+                                                <strong>Вариант 1 (Навигатор)</strong>
+                                                <p>Накладных расходов нет. Бот работает на моём сервере.</p>
+                                            </div>
+                                            <span class="exp-val-tag">0 $ / мес</span>
+                                        </div>
+                                        <div class="exp-detail-row">
+                                            <div class="exp-detail-col">
+                                                <strong>Сервер (VPS) для L2 и L3</strong>
+                                                <p>Облачный сервер для круглосуточной работы. Оплата хостингу напрямую.
+                                                </p>
+                                            </div>
+                                            <span class="exp-val-tag">$10 – $15 / мес</span>
+                                        </div>
+                                        <div class="exp-detail-row">
+                                            <div class="exp-detail-col">
+                                                <strong>SSL-сертификат (HTTPS)</strong>
+                                                <p>Защищенное шифрованное соединение. Настрою бесплатный Let's Encrypt.
+                                                </p>
+                                            </div>
+                                            <span class="exp-val-tag">Бесплатно</span>
+                                        </div>
+                                        <div class="exp-detail-row">
+                                            <div class="exp-detail-col">
+                                                <strong>Домен (Адрес)</strong>
+                                                <p>Бесплатный поддомен от хостинга. Свой брендовый домен (.com)
+                                                    покупается отдельно.</p>
+                                            </div>
+                                            <span class="exp-val-tag">0$ – 15$ / год</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Аккордеон 3: Развитие -->
+                        <div class="accordion-item details-card-item" id="accordion-d3">
+                            <div class="accordion-trigger" onclick="toggleAccordion('accordion-d3')">
+                                <div class="trigger-left">
+                                    <h3>Что можно добавить позже (Развитие)</h3>
+                                </div>
+                                <i class="fa-solid fa-chevron-down arrow"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="content-body">
+                                    <div class="addons-list-compact">
+                                        <div class="addon-row">
+                                            <div class="addon-info">
+                                                <h4>Расширенная рефералка</h4>
+                                                <p>Полноценный модуль учёта начислений партнёрам, статистика выплат,
+                                                    автоматические отчёты и балансы прямо в системе.</p>
+                                            </div>
+                                            <span class="addon-time-tag">~8–10 ч</span>
+                                        </div>
+                                        <div class="addon-row">
+                                            <div class="addon-info">
+                                                <h4>Генератор документов</h4>
+                                                <p>Модуль автоматической генерации макетов. Данные клиента автоматически
+                                                    подставляются в шаблон МВУ, на выходе — готовый макет.</p>
+                                            </div>
+                                            <span class="addon-time-tag">~10–15 ч</span>
+                                        </div>
+                                        <div class="addon-row">
+                                            <div class="addon-info">
+                                                <h4>База знаний и FAQ</h4>
+                                                <p>Дополнительные интерактивные страницы, статьи с правилами,
+                                                    расширенные FAQ-разделы с поиском для клиентов.</p>
+                                            </div>
+                                            <span class="addon-time-tag">По запросу</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="next-step-btn-container">
+                    <a href="#compare" class="btn-neon btn-back"><i class="fa-solid fa-arrow-left"></i> Назад</a>
+                </div>
+            </div>
+
+            <!-- Глобальный подвал, отображаемый на каждой странице -->
+            <footer class="proposal-footer">
+                <div class="footer-content">
+                    <h2>ДАВАЙ НАЧНЁМ</h2>
+                    <p>Напиши, какой вариант реализации ближе к твоим текущим задачам и бюджету. Обсудим детали,
+                        зафиксируем сроки и стартанем.</p>
+
+                    <div class="author-block">
+                        <a href="https://t.me/kiryvanya" class="btn-neon" target="_blank">
+                            <i class="fa-brands fa-telegram"></i> Telegram
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <script>
+        // SPA Routing Logic
+        function route() {
+            const hash = window.location.hash || '#main';
+            const sections = {
+                '#main': 'main-page',
+                '#tariffs': 'tariffs-page',
+                '#compare': 'compare-page',
+                '#guarantees': 'guarantees-page'
+            };
+
+            // Скрываем все страницы
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('visible');
+            });
+
+            // Убираем активный класс у навигации
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Показываем целевую страницу
+            const targetId = sections[hash] || 'main-page';
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+                setTimeout(() => {
+                    targetSection.classList.add('visible');
+                }, 50);
+                window.scrollTo(0, 0);
+            }
+
+            // Подсвечиваем вкладку в меню
+            const activeLink = document.querySelector(`.nav-link[href="${hash}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        // Accordion Toggle Logic (плавное раскрытие)
+        function toggleAccordion(id) {
+            const item = document.getElementById(id);
+            if (!item) return;
+
+            const isAlreadyActive = item.classList.contains('active');
+
+            // Закрываем другие аккордеоны в той же группе
+            const parent = item.parentElement;
+            parent.querySelectorAll('.accordion-item').forEach(sibling => {
+                sibling.classList.remove('active');
+                const siblingContent = sibling.querySelector('.accordion-content');
+                if (siblingContent) siblingContent.style.maxHeight = null;
+            });
+
+            if (!isAlreadyActive) {
+                item.classList.add('active');
+                const content = item.querySelector('.accordion-content');
+                if (content) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            }
+        }
+
+        window.addEventListener('hashchange', route);
+        window.addEventListener('DOMContentLoaded', () => {
+            route();
+            // Раскрываем первый аккордеон в деталях и LEVEL 02 в тарифах по умолчанию
+            setTimeout(() => {
+                toggleAccordion('accordion-d1');
+                toggleAccordion('accordion-t2');
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
