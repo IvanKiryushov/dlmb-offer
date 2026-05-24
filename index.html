@@ -12,6 +12,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 
 <body>
@@ -112,6 +113,9 @@
                                             <strong>Результат:</strong> Вопросы «а как заполнять?» сокращаются вдвое.
                                             Клиенты приходят уже подготовленными.
                                         </div>
+                                        <div class="select-tariff-btn-container" style="margin-top: 20px;">
+                                            <button onclick="selectTariff(1)" class="btn-neon" style="width: 100%; justify-content: center;">🎯 Выбрать этот вариант</button>
+                                        </div>
                                     </div>
                                     <div class="card-footer-flat">
                                         <span class="meta-item"><i class="fa-regular fa-clock"></i> Срок: ~1
@@ -147,6 +151,9 @@
                                             <strong>Результат:</strong> Полный контроль над потоком заявок. Исключены
                                             ошибки ручного ввода, а данные клиентов всегда структурированы.
                                         </div>
+                                        <div class="select-tariff-btn-container" style="margin-top: 20px;">
+                                            <button onclick="selectTariff(2)" class="btn-neon" style="width: 100%; justify-content: center;">🎯 Выбрать этот вариант</button>
+                                        </div>
                                     </div>
                                     <div class="card-footer-flat">
                                         <span class="meta-item"><i class="fa-regular fa-clock"></i> Срок: 2–3
@@ -181,6 +188,9 @@
                                         <div class="outcome-box-flat">
                                             <strong>Результат:</strong> Управление бизнесом через полноценный пульт
                                             управления с абсолютной безопасностью конфиденциальных данных.
+                                        </div>
+                                        <div class="select-tariff-btn-container" style="margin-top: 20px;">
+                                            <button onclick="selectTariff(3)" class="btn-neon" style="width: 100%; justify-content: center;">🎯 Выбрать этот вариант</button>
                                         </div>
                                     </div>
                                     <div class="card-footer-flat">
@@ -465,6 +475,16 @@
     </article>
 
     <script>
+        // Telegram WebApp Tariff Selection
+        function selectTariff(num) {
+            const botUrl = `https://t.me/offerDLBot?start=select_${num}`;
+            if (window.Telegram && window.Telegram.WebApp) {
+                window.Telegram.WebApp.openTelegramLink(botUrl);
+            } else {
+                window.open(botUrl, '_blank');
+            }
+        }
+
         // SPA Routing Logic
         function route() {
             const hash = window.location.hash || '#main';
